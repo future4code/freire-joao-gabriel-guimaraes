@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adicionar Produto</title>
+    <title>Produtos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
         <p><strong>SuplementaJão</strong></p>
     </header>
     
-    <nav>
-        <a href="./index.html">Página Inicial</a>
-        <a href="./ctrl-estoque.html">Controle de Estoque</a>
-        <a href="./add-produto.html">Adicionar Produto</a>
-        <a href="./funcionarios.html">Funcionários</a>
+    <nav class="jao">
+        <a href="./index.html">Página Inicial</a> <br>
+        <a href="./ctrl-estoque.html">Controle de Estoque</a> <br>
+        <a href="./add-produto.html">Adicionar Produto</a> <br>
+        <a href="./funcionarios.html">Funcionários</a> <br>
     </nav>
 
     
-    <h2>Adicionar Produto</h2>
-    <form action="">
+    <h2 class="prod">Adicionar Produto</h2>
+    <form class="prod" action="">
             <label for="link-foto">Link para foto: </label>
             <input type="url" id="link-foto" name="link-foto">
             <br>
@@ -40,7 +41,7 @@
 
             <br>
             <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
+            <button type="submit" formaction="http://127.0.0.1:5501/template-loja/ctrl-estoque.html" >Adicionar</button>
 
     </form>
 
