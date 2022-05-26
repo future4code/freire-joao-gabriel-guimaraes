@@ -17,14 +17,17 @@ h2 {
 }
 
 input {
-    height: 20px;
+    height-bottom: 20px;
     width: 500px;
-    border-style: none none solid none;
-    border-width: 2px;
+    border-style: none none solid;
+    border-width: 1px;
 }
 
 button:focus {
     color: white;
+}
+button:hover{
+    background-color: #ffaf43
 }
 
 img {
@@ -120,6 +123,7 @@ td button {
     width: 150px;
     height: 30px;
     border-radius: 5px;
+    border-color: #fadf63;
     color: black;
 }
 
