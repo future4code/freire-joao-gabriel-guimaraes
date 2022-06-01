@@ -8,6 +8,7 @@ header, footer{
     height: 60px;
     display:grid;
     align-items: center;
+    justify-content: center;
    
 }
 header{
@@ -37,7 +38,7 @@ input{
 }
 
 main{
-    width: 1fr;
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -63,4 +64,33 @@ p{
 }
 
 #teste{position:relative}
-#teste:hover{top:-5px;box-shadow:0 2px 2px #666}
+#teste:hover{transform: scale(1.09);box-shadow:0 2px 2px #666}
+
+@media screen  and (max-device-width : 480px) {
+    main{
+        grid-template-columns: 100vw;
+        margin: 20px 0;
+        row-gap: 30px;
+        
+    }
+    header, footer{
+        width: 100vw;
+        font-size: 80%;
+    }
+    header{
+        padding: 0 0px;
+    }
+    input{
+        width: 120px;
+    }
+    h1{
+        margin-left: 15px;
+    }
+   .sombra{
+       width: 85vw;
+    }
+    #teste:hover{
+        transform: none;
+    }
+  
+}

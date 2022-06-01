@@ -46,3 +46,36 @@ video{
     margin-left:270px;
     margin-bottom: 12px;
 }
+
+@media screen  and (max-device-width : 480px) {
+    header, footer{
+        width: 100vw;
+        font-size: 80%;
+    }
+    header{
+        padding: 0 0px;
+    }
+    input{
+        width: 120px;
+    }
+    h1{
+        margin-left: 15px;
+    }
+    .bora > h2{
+        margin-left: 19px;
+        margin-top: 50px;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+    
+    main{
+        width: 100vw;
+        align-items: flex-start;
+    }
+    #container{
+        height: 100hv;
+    }
+    video{
+        width: 90vw;
+    }
+}
