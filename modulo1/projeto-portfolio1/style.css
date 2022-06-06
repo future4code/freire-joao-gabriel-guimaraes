@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color:black
+}
+
+header {
+  background-color: rgba(33, 11, 224, 0.678);
+  height: 40px;
+  text-align: right;
+  padding-right: 120px;
+  padding-top: 16px;
+  
+}
+.menu a {
+  padding: 5px;
+  border: solid;
+  border-radius: 12px;
+  text-decoration: solid;
+  text-align: center;
+}
+.menu a:hover {
+  background-color: rgb(39, 18, 155);
+}
+
+nav {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 600px;
+  
+}
+
+nav h1 {
+  margin-left: 230px;
+  padding-top: 200px;
+  font-size: xx-large;
+}
+
+nav p {
+  margin-top: 15px;
+  margin-left: 70px;
+  margin-right: auto;
+}
+
+nav img {
+  position: absolute;
+  right: 150px;
+  top: 180px;
+  width: 20%;
+  height: 50%;
+  border-radius: 5px;
+}
+
+.exp{
+    height: 8cm;
+}
+
+div {
+  background-color: whitesmoke;
+  height: 12cm;
+  
+}
+div h2 {
+  text-align: center;
+}
+div ul {
+  margin-top: 70px;
+  text-align: center;
+  list-style-position: inside;
+  padding: 25px;
+}
+
+div img {
+    background-color: white;
+    
+   text-align: center;
+}
+table,td{
+    text-align: center;
+    margin: 55px auto;
+    
+}
+td strong{
+    color: whitesmoke;
+}
+
+#habilidades h2 {
+    margin-bottom: 5%;
+    
+}
+
+#habilidades li{
+    text-align: center;
+    margin-bottom: 12px;
+}
+input[type=submit]{
+    width: 10%;
+}
+input {
+    display: block;
+    margin-left: 8px;
+    
+}
+label{
+    margin-left: 8px;
+}
+.nome {
+    border-radius: 4px;
+    width: 15%;
+}
+input[type=email] {
+    border-radius: 4px;
+    width: 15%;
+}
+
+.contato{
+    width: 20%;
+    height: 15%;
+    border-radius: 4px;
+}
+.blackjack p{
+    text-align:justify;
+    color: aqua;
+    background-color: white;
+}
+
+.imagem{
+    background-color: whitesmoke !important;
+    height: auto;
+    width: 40px;
+    margin-top: 12px;
+    padding: 8px;
+}
+div p {
+    margin-left: 8px;
+}
+
+
+
