@@ -22,7 +22,7 @@ const Botao = styled.button `
 `
 
 export default class SecaoEnviar extends Component {
-	
+    
 
 	
 	render() {
@@ -43,6 +43,7 @@ export default class SecaoEnviar extends Component {
             nameL = {'twitter'}>Twitter
             </Botao>
 		</CommentContainer>
+        
         );
 	}
 }

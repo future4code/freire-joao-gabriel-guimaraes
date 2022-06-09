@@ -94,7 +94,7 @@ class Post extends React.Component {
     })
   }
   aoEnviar = () => {
-    console.log(`Post compartilhado no instagram`)
+    console.log(`Post compartilhado no ${this.props.Botao}`)
     this.setState({
       enviar: false
     })

@@ -6,7 +6,7 @@ const IconContainer = styled.div`
 `
 const IconImage = styled.img`
 	margin-right: 5px;
-	width: 3vw;
+	width: 20px;
 `
 
 export function IconeComContador(props) {
