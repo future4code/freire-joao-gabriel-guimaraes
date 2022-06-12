@@ -22,6 +22,11 @@ const Container = styled.div`
   height: 100vh;
   border: 1px solid black;
   background-color: #e5ddd5;
+  @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    margin: 5vh auto;
+    height: 90vh;
+    width: 90vw;
+  }
 `;
 
 const Input = styled.input`
