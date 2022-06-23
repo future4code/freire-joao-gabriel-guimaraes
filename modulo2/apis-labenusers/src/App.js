@@ -1,94 +1,54 @@
-
-import './App.css';
-import React from 'react';
-import axios from 'axios'
-import PaginaUsuarios from './components/PaginaUsuarios'
+import "./App.css";
+import React from "react";
+import axios from "axios";
+import PaginaUsuarios from "./components/PaginaUsuarios";
+import PaginaCadastro from "./components/PaginaCadastro";
+import PaginaDetalhes from "./components/PaginaDetalhes";
 class App extends React.Component {
-      state = {
-        inputNome: "",
-        inputEmail: "",
-        usuariosCadastrados: [],
-        pagina: 'paginaInicial'
-      }
-      componentDidMount = (event) => {
-        this.listaUsuarios()
-      }
-    listaUsuarios = () => {
-      axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', 
-      {headers: {
-        authorization: 'joaoGabriel-guimaraes-labenu'
-      }}).then((response) => {
-        this.setState({usuariosCadastrados: response.data})
-        console.log(response.data)
-      }).catch((error) => {
-        alert(error.message)
-      })
-    }
-    criarUsuário = (event) => {
-      const body = {
-        name: this.state.inputNome,
-        email: this.state.inputEmail
-      }
-
-      axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users', 
-      body, 
-        {headers: {
-          authorization: 'joaoGabriel-guimaraes-labenu'
-        }}).then((response) => {
-            alert(`Usuário ${this.state.inputNome} cadastrado!`)
-            this.listaUsuarios()
-        }).catch((error) =>{
-            alert(error.message)
-        })
-    }
-
-    deletarUsuario = (id) => {
-      if(window.confirm("tem certeza que deseja apagar?")){
-         axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}` 
-          ,{headers: {authorization: 'joaoGabriel-guimaraes-labenu'
-        }}).then((response) => {
-           alert('Usuário apagado com sucesso')
-           this.listaUsuarios() 
-          }).catch((error) => {
-            alert(error.message)
-          })
-        }
-  }
-
+  state = {
+    inputNome: "",
+    inputEmail: "",
+    usuariosCadastrados: [],
+    pagina: "paginaCadastro",
+  };
   
-     
-    onChangeInputNome = (event) => {
-      this.setState({inputNome: event.target.value})
-    }
-    onChangeInputEmail = (event) => {
-      this.setState({inputEmail: event.target.value})
-    }
-  render(){
-      const lista = this.state.usuariosCadastrados.map((lista) => {
-          return <li> <b>{lista.name}</b> <button className="botao1" onClick = {() => {this.deletarUsuario(lista.id)}}>X</button> </li>
-      })
-        
+  trocarPagina = () => {
+    switch (this.state.pagina) {
+      case "paginaCadastro":
+        return <PaginaCadastro mudarTela={this.irParaUsuarios} />;
+      case "paginaUsuarios":
+        return (
+          <PaginaUsuarios
+            mudarTela={this.irParaCadastro}
+            detalhes={this.irParaDetalhes}
+          />
+        );
+      case "paginaDetalhes":
+        return <PaginaDetalhes mudarTela={this.irParaUsuarios} />;
 
-      
+      default:
+        <div>Página não encontrada</div>;
+    }
+  };
+
+  irParaCadastro = () => {
+    this.setState({ pagina: "paginaCadastro" });
+  };
+  irParaUsuarios = () => {
+    this.setState({ pagina: "paginaUsuarios" });
+  };
+
+  irParaDetalhes = () => {
+    this.setState({ pagina: "paginaDetalhes" });
+  };
+
+  render() {
     return (
       <div>
-      <div className="App">
-        <h3>Faça seu cadastro</h3>
-          <input type="text" onChange = {this.onChangeInputNome} value = {this.state.inputNome} placeholder = 'Nome' className="input1"/> <br />
-          <input type="text" onChange = {this.onChangeInputEmail} value = {this.state.inputEmail} placeholder = 'Email' className="input2"/> <br />
-          <button onClick = {this.criarUsuário} className="botao">Criar Usuário</button>
-      </div>
-
-           <div>
-           <p className="lista"><h2>Lista de Usuários: </h2>{lista}</p> 
-            </div> 
-           
-              
-          
+        <p>{this.trocarPagina()}</p>
       </div>
     );
   }
- 
 }
 
 export default App;
