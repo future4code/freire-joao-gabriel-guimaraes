@@ -1,0 +1,54 @@
+*{
+  font-family: sans-serif;
+  background-color: blueviolet;
+}
+
+
+
+.App {
+  text-align: center;
+  border: 2px solid black;
+  width: 40vw;
+  height: 30vh;
+  margin: 60px auto;
+  background-color: violet;
+}
+
+.App > h3{
+  background-color: violet;
+}
+
+.input1 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  background-color: white;
+}
+
+.input2 {
+  padding-left: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.lista {
+ text-align: center;
+}
+
+.botao1 {
+  background-color: white;
+  border-color: white;
+  color: red;
+}
+
+.botao {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+
+.botao:hover{
+  background-color: blueviolet;
+  border-color: blueviolet;
+  color: black;
+}
