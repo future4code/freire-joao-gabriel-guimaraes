@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.head img{
+    height: 20px;
+    width: auto;
+    margin: 0 20px 0 0;
+}
+header div{
+    display: flex;
+    align-items: center;
+    font-size: larger;
+    
+}
+
+header, footer{
+    display: flex;
+    background-color: mediumvioletred;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    justify-content: space-between;
+    padding: 0 20px;
+    
+}
+
+footer{
+    justify-content: center;
+}
+div > footer {
+    display: flex;
+    justify-content: center;
+}
+.botao{
+    
+    align-items: center;
+}
+
+/* main e aside*/
+aside{
+    background-color: #f2d0e0;
+    
+   
+}
+.conteudo img{
+    height: 20px;
+    width: auto;
+    margin: 10px 20px 0 0;}
+
+.conteudo{
+    display: flex;
+    height: 710px;
+}
+
+
+.conteudo > aside{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content:flex-start;
+    padding: 0 20px;
+    width: 55vh;
+}
+.bolo > h4{
+    display: inline;
+}
+
+.bolo > div{
+    display:flex;
+    justify-content: flex-end;
+   margin-top: -30px;
+   margin-right: -30px;
+}
+
+.conteudo > main{
+   flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+
+.fotos img{
+    height: 239px;
+    width: 239px;
+    margin-left: 16px;
+    box-shadow: 3px -3px 5px darkgray;
+   
+}
+.vamo{
+    text-align: center;
+    margin: -12px 16px;
+    height: auto;
+    width: 239px;
+    box-shadow: 3px 3px 5px darkgray;
+    
+}
+

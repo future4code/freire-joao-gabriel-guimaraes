@@ -1,0 +1,67 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(247, 240, 232);
+}.nome-loja{
+    color: rgb(13, 172, 7) ;
+    display: inline;
+}
+
+footer{
+    color: rgb(13, 172, 7);
+    margin-top: 300px;
+    
+}
+main{
+    
+    display: inline;
+    background-color: bisque;
+}
+nav{
+    margin-bottom: 12px;
+    display: block;
+}
+
+.forte{
+    display: inline;
+    background-color: rgb(255, 34, 5);
+    
+}
+.func{
+    background-color: blue;
+    display: inline;
+    padding: 4px;
+    margin-left: 240px;
+    color: white;
+    
+}
+.funci{
+    background-color: rgb(38, 38, 138);
+    display: inline-flex;
+    padding: 4px;
+    color: aliceblue;
+}
+
+.jao{
+    display: block;
+    
+}
+
+.prod{
+    display: block;
+    color: brown;
+}
+
+h2{
+    color: rgb(38, 73, 138);
+}
+.nome{
+    padding: 30px;
+    
+}
+td{
+    background-color: white;
+    
+}
+
+
+

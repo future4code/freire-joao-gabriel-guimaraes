@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header, footer{
+    background-color: brown;
+    height: 60px;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+   
+}
+header{
+    grid-template-columns: 1fr 150px;
+    padding: 0 60px;
+}
+footer{
+    justify-items: center;
+}
+input{
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 150px;
+    height: 30px;
+    background-image: url(./imagens/lupinha.png);
+    background-position: 2px;
+    background-repeat: no-repeat;
+    padding: 0 20px;
+    outline: none;
+}
+
+#container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 60px 1fr 60px;
+}
+
+main{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+#conteudo > div{
+    display: grid;
+    justify-content: center;
+    
+    
+}
+p{
+    display: grid;
+    padding-top: 20px;
+    text-align: center;
+    
+    
+}
+
+.sombra{
+    box-shadow: 2px 0px 2px 0px darkgray;
+}
+
+#teste{position:relative}
+#teste:hover{transform: scale(1.09);box-shadow:0 2px 2px #666}
+
+@media screen  and (max-device-width : 480px) {
+    main{
+        grid-template-columns: 100vw;
+        margin: 20px 0;
+        row-gap: 30px;
+        
+    }
+    header, footer{
+        width: 100vw;
+        font-size: 80%;
+    }
+    header{
+        padding: 0 0px;
+    }
+    input{
+        width: 120px;
+    }
+    h1{
+        margin-left: 15px;
+    }
+   .sombra{
+       width: 85vw;
+    }
+    #teste:hover{
+        transform: none;
+    }
+  
+}
