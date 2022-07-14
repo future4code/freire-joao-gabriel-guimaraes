@@ -1,5 +1,3 @@
-
-import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -8,11 +6,14 @@ export function useRequestData(url) {
     const [data, setData] = useState(undefined)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
-
-    useEffect(() => {
-    setIsLoading(true)
+    const getData = () => {
+        setIsLoading(true)
     axios
-        .get(url)
+        .get(url, {
+            headers: {
+                auth: localStorage.getItem("token")
+            }
+        })
         .then((response) => {
         setData(response.data)
         setIsLoading(false)
@@ -21,31 +22,14 @@ export function useRequestData(url) {
         setError(err)
         setIsLoading(false)
        })
-    }, [url]) 
-        return [data, isLoading, error] 
-}
-
-export function useEditData(url) {
-    
-    const [data, setData] = useState(undefined)
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState('')
+    }
 
     useEffect(() => {
-    setIsLoading(true)
-    axios
-        .post(url)
-        .then((response) => {
-        setData(response.data)
-        setIsLoading(false)
-       })
-        .catch((err) => {
-        setError(err)
-        setIsLoading(false)
-       })
+    getData()
     }, [url]) 
-        return [data, isLoading, error] 
+        return [data, isLoading, error, getData] 
 }
+
 
 export function useDeleteData(url) {
     
@@ -68,24 +52,25 @@ export function useDeleteData(url) {
     }, [url]) 
         return [data, isLoading, error] 
 }
-export function useDecideData(url) {
+export function decideData(url, decision,getData) {
     
-    const [data, setData] = useState(undefined)
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState('')
-
-    useEffect(() => {
-    setIsLoading(true)
+    const body = {
+        approve: decision
+    }
     axios
-        .put(url)
+        .put(url, body, {
+            headers: {
+                auth: localStorage.getItem("token")
+            }
+        })
         .then((response) => {
-        setData(response.data)
-        setIsLoading(false)
+        console.log(response.data)  
+        alert('decisão registrada!')
+        getData()
+       
        })
         .catch((err) => {
-        setError(err)
-        setIsLoading(false)
+        alert(err.message)
        })
-    }, [url]) 
-        return [data, isLoading, error] 
+    
 }
