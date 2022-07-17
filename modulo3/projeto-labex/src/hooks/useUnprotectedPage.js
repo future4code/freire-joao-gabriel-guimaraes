@@ -1,14 +1,13 @@
-import {useLayoutEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
- const useUnprotectedPage = () => {
-    const navigate = useNavigate()
+const useUnprotectedPage = () => {
+  const navigate = useNavigate();
   useLayoutEffect(() => {
-    const token = window.localStorage.getItem('token')
-    if(token) {
-        navigate('/admin/trips/list')
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      navigate("/admin/trips/list");
     }
-  }, [navigate])
-  
-}
-export default useUnprotectedPage
+  }, [navigate]);
+};
+export default useUnprotectedPage;
