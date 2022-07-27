@@ -12,7 +12,7 @@ export const Rotas = () => {
                 <Route index element = {< LoginPage/>} />
                 <Route path = 'signUp' element = {< SignUpPage/>}/>
                 <Route path = 'feed' element = {< FeedPage/>}/>
-                <Route path = 'post' element = {< PostPage/>}/>
+                <Route path = 'post/:id' element = {< PostPage/>}/>
             </Routes>
         </BrowserRouter>
     )
