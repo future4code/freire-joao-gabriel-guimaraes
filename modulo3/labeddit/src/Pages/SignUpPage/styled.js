@@ -150,6 +150,7 @@ export const Text = styled.p`
     }
   }
   @media screen and (max-device-width: 480px) {
+    margin-left: 3px;
   }
 `;
 export const Div = styled.p`
@@ -163,5 +164,6 @@ export const Div = styled.p`
   margin-top: 30px;
   max-width: 95%;
   @media screen and (max-device-width: 480px) {
+    margin-left: 3px;
   }
 `;
