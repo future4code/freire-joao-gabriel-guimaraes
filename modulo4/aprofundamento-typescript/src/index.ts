@@ -1,0 +1,1 @@
+console.log('Use os comandos npm run ex(número do exercício) para vizualizar as respotas')
