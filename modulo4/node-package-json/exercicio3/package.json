@@ -1,0 +1,12 @@
+{
+  "name": "exercicio3",
+  "version": "1.0.0",
+  "description": "''\u001b[DExercício 3'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "João Gabriel",
+  "license": "ISC"
+}
