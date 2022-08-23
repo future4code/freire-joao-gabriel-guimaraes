@@ -1,0 +1,89 @@
+1a) Este comando deletaria a coluna ''salary''
+
+b) este comando mudaria a coluna 'gender' com 255 caracteres maximo, para o nome 'sex' com no máximo 6 caracteres
+
+c) Este comando mudaria o type gender para gender com 255 caracteres, provavelmente não mudaria nada.
+
+d) ALTER TABLE Actor
+CHANGE gender gender VARCHAR(100)
+
+2) UPDATE Actor
+SET name = 'Joaozão1', birth_date = '1999-01-29'
+WHERE id = '003';
+
+b) UPDATE Actor
+SET name = UPPER(name)
+WHERE name = 'Tony Ramos';
+
+UPDATE Actor
+SET name = LOWER(name)
+WHERE name = 'TONY RAMOS';
+
+
+c) UPDATE Actor
+SET name = 'amandinha', 
+salary = 25000, 
+birth_date = '1999-03-19', 
+gender = 'female'
+WHERE id = '004';
+
+d) Ele altera, porém mostra no console que nenhuma coluna ou linha foi afetada, já que o ID nao existe
+
+3) DELETE FROM Actor
+WHERE name = 'Fernanda Montenegro'
+
+b) DELETE FROM Actor Where gender = 'male' AND salary > 1000000
+
+4) SELECT MAX(salary) FROM Actor;
+
+b) SELECT MIN(salary) FROM Actor WHERE gender = 'female';
+
+c) SELECT COUNT(*) FROM Actor WHERE gender = 'female';
+
+d) SELECT SUM(salary) from Actor
+
+5) Esta query retorna a quantidade de pessoa de cada genero que existe nesta tabela.
+
+b) SELECT id, name FROM Actor ORDER BY name DESC;
+
+c) SELECT * FROM Actor ORDER BY salary ASC;
+
+d) SELECT * FROM Actor ORDER BY salary DESC LIMIT 3;
+
+e) SELECT AVG(salary), gender FROM Actor GROUP BY gender;
+
+6) ALTER TABLE Filmes
+ADD data_limite DATE;
+
+b) ALTER TABLE Filmes
+CHANGE avaliacao avaliacao FLOAT;
+
+c) UPDATE Filmes
+SET data_limite = '2022-08-24'
+WHERE id = '001';
+
+UPDATE Filmes
+SET data_limite = '2022-08-15'
+WHERE id = '003';
+
+d) Mesmo depois de deletado, ele ainda deixa alterar a sinopse de um filme com id inexistente, porém ele fala que não houve alteração em nenhuma das linhas (já que o id não existe)
+
+7) SELECT COUNT(*) From Filmes WHERE avaliacao > 7.5
+
+b) SELECT AVG(avaliacao) FROM Filmes
+
+c) SELECT COUNT(*) FROM Filmes WHERE data_limite > CURDATE()
+
+d) SELECT COUNT(*) FROM Filmes WHERE data_lancamento > CURDATE()
+
+e) SELECT MAX(avaliacao) FROM Filmes
+
+f) SELECT MIN(avaliacao) FROM Filmes
+
+8) SELECT * FROM Filmes ORDER BY nome
+
+b) SELECT * FROM Filmes ORDER BY nome LIMIT 5
+
+c) SELECT * FROM Filmes WHERE data_lancamento < CURDATE() ORDER BY data_lancamento DESC LIMIT 3
+
+d) SELECT * FROM Filmes ORDER BY avaliacao DESC LIMIT 3
