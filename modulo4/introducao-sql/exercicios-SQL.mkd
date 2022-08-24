@@ -1,0 +1,116 @@
+1a) VARCHAR é usado para strings, onde dentro dos parênteses é possível declarar o tamanho limite desta string.
+    DATE é usado para datas,
+    NOT NULL significa que este campo não pode ficar vazio na hora de preencher a tabela.
+
+b) SHOW TABLES mostra todas as tabelas criadas dentro daquele DATABASE e
+   SHOW DATABASES mostra todas as databeses existentes
+
+c) Este comando descreve tudo sobre a estrutura da tabela, como os nomes, tipos, se tem chave ou não, se pode ser
+   nula, além de mostrar se tem alguma coisa extra.
+
+2a) INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES	 (
+"002",
+"Glória Pires",
+1200000,
+"1963-08-23",
+"female");
+
+
+b) Da erro pelo fato de que o id tem KEY do tipo PRIMARY e não pode se repetir.
+
+c) O erro que aconteceu foi relacionado a falta de parâmetros. Os valores foram passados, porém nem todos parametros 
+   foram passados. Para corrigir, era só colocar todos valores nos parenteses (id, name, salary, birth_date, gender)
+
+d) Faltou passar o valor para o parâmetro 'name', que é obrigatório por não poder ser nulo, usando NOT NULL.
+
+e) Todos VARCHAR precisam, obrigatoriamente, utilizar "". o valor de birth_date não possui aspas por isso deu erro.
+
+f) INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+"003",
+"Joaozin Brabo",
+23000,
+"1999-01-29",
+"male");
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES (
+"004",
+"Amandinha nenem",
+20000,
+"1999-03-19",
+"female");
+
+3a) SELECT * FROM Actor WHERE gender = "female".
+
+b) SELECT salary FROM Actor WHERE name = "Tony Ramos".
+
+c) O resultado deu null, já que não existe nenhum ator que tem o genêro como 'inválido'
+
+d) SELECT id, name, salary FROM Actor WHERE salary <= 500000.
+
+e) Erro: Coluna desconhecida chamada 'nome'. Para consertar este erro, basta mudar de 'nome' para 'name'. SELECT id, name from Actor WHERE id = "002"
+
+4a) Esta query começa selecionando todos os itens de um array, seguido por um WHERE, que restringe os itens a começar com A ou J, utilizando o comparador
+    LIKE e depois verificando salários maiores que 300 mil, utilizando o operador simples >.
+
+b) SELECT * FROM Actor WHERE name NOT LIKE "A%" AND salary > 350000
+
+c) SELECT * FROM Actor WHERE name LIKE "%Gg%"
+
+d) SELECT * FROM Actor WHERE name LIKE "%GgAa%" AND salary BETWEEN 350000 AND 900000
+
+5a) CREATE TABLE Filmes (
+id INT PRIMARY KEY,
+nome VARCHAR(255) NOT NULL UNIQUE,
+sinopse TEXT NOT NULL,
+data_lancamento VARCHAR(255) NOT NULL,
+avaliacao INT NOT NULL)
+
+B) INSERT INTO Filmes (id, nome, sinopse, data_lancamento, avaliacao)
+VALUES (
+001,
+"Se eu fosse você",
+"Claúdio e Helena são casados há muito tempo e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+"2006-01-06",
+7)
+
+c) INSERT INTO Filmes (id, nome, sinopse, data_lancamento, avaliacao)
+VALUES (
+002,
+"Doce de mãe",
+"Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+"2012-12-27",
+10);
+
+d) INSERT INTO Filmes (id, nome, sinopse, data_lancamento, avaliacao)
+VALUES (
+003,
+"Dona Flor e Seus Dois Maridos",
+"Dona Flor é uma sedutora professora de culinária casada com Vadinho, que só quer saber de farras e jogatina nas boates. A vida de abusos acaba por acarretar sua morte precoce.",
+"2017-11-02",
+8);
+
+e) INSERT INTO Filmes (id, nome, sinopse, data_lancamento, avaliacao)
+VALUES (
+004,
+"Tropa de elite",
+"Capitão nascimento mostrando como é a vida dos policiais do Brasil",
+"2007-10-05",
+8);
+
+6a) SELECT id, nome, avaliacao FROM Filmes WHERE id = "002";
+
+b) SELECT * FROM Filmes WHERE nome = "Se eu fosse você";
+
+c) SELECT id, nome, sinopse FROM Filmes WHERE avaliacao >= 7;
+
+
+7a) SELECT * FROM Filmes WHERE nome LIKE "%vida%";
+
+b) SELECT * FROM Filmes WHERE nome LIKE "%você%" OR sinopse LIKE "%você%";
+
+c) SELECT * FROM Filmes WHERE data_lancamento < "2022-08-22";
+
+d) SELECT * FROM Filmes WHERE data_lancamento < "2022-08-22" AND (nome LIKE "%a%" OR sinopse LIKE "%a%") AND avaliacao > 7;
