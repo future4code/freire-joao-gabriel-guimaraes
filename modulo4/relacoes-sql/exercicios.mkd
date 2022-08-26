@@ -1,0 +1,101 @@
+1) A chave estrangeira ela serva para linkar duas tabelas diferentes através de alguma variável. É necessário que estas variaveis sejam do mesmo tipo, para que não tenha erro.
+
+b) CREATE TABLE rating(
+id VARCHAR(255) PRIMARY KEY,
+comentario TEXT NOT NULL,
+rate FLOAT NOT NULL,
+filme_id INT,
+FOREIGN KEY (filme_id) REFERENCES Filmes(id));
+
+INSERT INTO rating VALUES(
+'1',
+'Filme perfeito! eu amei muitooo',
+7.85,
+001
+);
+
+INSERT INTO rating VALUES(
+'2',
+'Achei meio sem sal o final :/',
+3.85,
+002
+);
+
+INSERT INTO rating VALUES(
+'3',
+'Filme perfeito! eu amei muitooo',
+10,
+003
+);
+
+INSERT INTO rating VALUES(
+'4',
+'como eu amo um filme de carro com tantas mentiras',
+9.9,
+004
+);
+
+c)INSERT INTO rating VALUES(
+'5',
+'como eu amo um filme de carro com tantas mentiras',
+9.9,
+006
+);
+
+O mySql não aceita, já que não existe um id com este número na tabela de filmes.
+
+d) ALTER TABLE Filmes
+DROP COLUMN avaliacao;
+
+e) Não apaga, já que ele esta linkado com a tabela de rating. Para conseguir apagar, teria que apagar primeiro na tabela de avaliação.
+
+2) Esta tabela faz a ligação entre duas tabelas que tem relação N:M, ou seja, varios de uma tem link com um item da outra tabela e vice-versa. Para conseguir conectar as duas e obter os resultados, é necessário fazer uma tabela intermediária. 
+
+b) INSERT INTO MovieCast VALUES 
+	(1,'001'),  (2,'002'), (3,'004'), (2,'002'), (4,'001'), (4,'002')
+
+c) Deu erro ja que o id do personagem não existe.
+
+d) Não apaga, pois ele ja tem um nivel de ligação com outra tabela, por isso nao é possível apagá-la. Para isso, é necessário primeiro apagar as tabelas que fazem essa ligação com ela.
+
+3) ON é a condição, então, se você quer juntar duas tabelas, voce usa o join e coloca a condição no ON. Por exemplo, se elas tem um id em como, você coloca ON id... = id...
+
+b) SELECT nome, sinopse, data_lancamento, data_limite, comentario, rate as 'avaliação'
+FROM Filmes
+JOIN rating
+ON rating.id = Filmes.id
+
+4) SELECT Filmes.id, nome, comentario, rate as 'avaliação'
+FROM Filmes
+LEFT JOIN rating
+ON rating.id = Filmes.id;
+
+b) SELECT Filmes.id, Filmes.nome, Actor.id 
+FROM MovieCast
+JOIN Filmes
+ON Filmes.id = MovieCast.movie_id
+
+c) SELECT  Filmes.id, Filmes.nome, AVG(rate) as 'Média'
+FROM Filmes
+LEFT JOIN rating
+ON rating.id = Filmes.id
+GROUP BY (Filmes.id)
+
+5) Porque existem 3 tabelas, sendo uma delas a intermediaria, pois a relação entre elas é N:M.
+
+b) SELECT Filmes.id as 'id filme', Filmes.nome as 'Nome filme', Actor.id as 'id ator', Actor.name as 'nome ator' 
+FROM MovieCast
+JOIN Filmes
+ON Filmes.id = MovieCast.movie_id
+JOIN Actor
+ON Actor.id = MovieCast.actor_id;
+
+d) SELECT Filmes.id as 'id filme', Filmes.nome as 'Nome filme', Actor.name as 'nome ator', rate, comentario
+FROM MovieCast
+LEFT JOIN Filmes
+ON Filmes.id = MovieCast.movie_id
+ JOIN Actor
+ON Actor.id = MovieCast.actor_id
+LEFT JOIN rating
+ON Filmes.id = rating.id
+; 
