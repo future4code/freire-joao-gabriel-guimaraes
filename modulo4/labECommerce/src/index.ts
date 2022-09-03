@@ -1,5 +1,5 @@
 import app from './app'
-import {AddressInfo} from 'net'
+import { AddressInfo } from 'net'
 import { createUser } from './endpoints/createUser'
 import { getAllUsers } from './endpoints/getAllUsers'
 import { createProducts } from './endpoints/createProduct'
@@ -16,7 +16,7 @@ app.get('/users/:user_id/purchases', getAllUsersPurchases)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
-    if(server) {
+    if (server) {
         const address = server.address() as AddressInfo
         console.log(`Server is running in http://localhost:${address.port}`)
     }

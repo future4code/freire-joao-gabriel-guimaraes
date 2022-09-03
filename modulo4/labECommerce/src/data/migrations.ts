@@ -2,7 +2,7 @@ import { connection } from "./connection";
 
 const printError = (error: any) => { console.log(error.sqlmessage || error.message) }
 
-const createTables = () => 
+const createTables = () =>
     connection.raw(`
     CREATE TABLE IF NOT EXISTS labecommerce_users(
         id_user VARCHAR(255) PRIMARY KEY,
@@ -27,10 +27,10 @@ const createTables = () =>
         FOREIGN KEY (product_id) REFERENCES labecommerce_products(id_product)
     );`
     )
-    .then(() => { console.log("Tabela criada!")})
-    .catch(printError)
+        .then(() => { console.log("Tabela criada!") })
+        .catch(printError)
 
-    const closeConnection = () => {connection.destroy()}
-    createTables()
-    .then(() => {console.log("banco pronto!")})
+const closeConnection = () => { connection.destroy() }
+createTables()
+    .then(() => { console.log("banco pronto!") })
     .finally(closeConnection)
