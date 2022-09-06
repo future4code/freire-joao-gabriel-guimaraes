@@ -1,0 +1,15 @@
+GET http://localhost:3003/character?name=o&page=2
+
+###
+
+POST http://localhost:3003/character
+Content-Type: application/json
+
+{
+   "name":"Maeve",
+   "movie": "The Boys"
+}
+
+###
+
+DELETE http://localhost:3003/character/3
