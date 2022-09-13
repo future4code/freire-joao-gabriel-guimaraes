@@ -1,0 +1,11 @@
+1) É muito melhor usar string, porque usando number você fica muito limitado em relação ao número de caracteres disponiveis para uso. É muito melhor usar string.
+
+2)a) O codigo acima ta criando uma conexão com o banco e depois tem uma função que insere um novo usuário no banco de dados.
+
+2)b) CREATE TABLE IF NOT EXISTS User (
+    id VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+3) as string serve para 'transformar' aquela variável em um tipo string. Ela é útil quando queremos transformar por exemplo um número em string para poder add em alguma variavel.
