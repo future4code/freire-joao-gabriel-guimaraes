@@ -1,0 +1,39 @@
+# @name signup
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   
+   "email": "joaoo@oscorp.com.br" ,
+   "password": "ihateaa",
+   "role": "ADMIN"
+}
+
+###
+
+# @id = {{signup.response.body.newUser.id}}
+
+# PUT http://localhost:3003/user/edit/{{id}}
+# Content-Type: application/json
+
+# {
+#    "name": "Harry Osbourne" 
+# }
+
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   
+   "email": "joao@oscorp.com.br" ,
+   "password": "ihateaa"
+}
+
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6ImJlYmQyMjgwLTk0NmUtNDI5Yi04YjA1LWY4MWFkZDNjZDQ4NiIsInJvbGUiOiJBRE1JTiJ9LCJpYXQiOjE2NjMxMDE2OTUsImV4cCI6MTY2MzEwMTk5NX0.04iq_YO6bUZgRjpQKpZrRodaMpBwIavX2hNROAg437g

@@ -1,0 +1,10 @@
+1) Rounds é o custo - numérico e quantas vezes vai ser passada
+Salt é um hash, string aleatória, que fica junto com o algoritmo.
+
+2) modifica primeiro o de cadastro, já que para fazer login tem q comparar as senhas e para conseguir fazer isso a senha no banco de dados ja tem que estar hasheada.
+
+3) não é necessário modificar o código.
+
+
+
+
