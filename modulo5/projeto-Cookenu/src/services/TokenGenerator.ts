@@ -5,7 +5,8 @@ export class TokenGenerator {
 
     public async generateToken(input:authenticationData): Promise<string> {
         const token = jwt.sign({
-            input
+            id: input.id,
+            role: input.role
         },
             
         process.env.JWT_KEY as string,

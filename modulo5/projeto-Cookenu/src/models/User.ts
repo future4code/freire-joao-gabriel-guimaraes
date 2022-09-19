@@ -1,4 +1,5 @@
 import { IdGenerator } from "../services/IdGenerator";
+import { userRole } from "../types/types";
 
 
 export default class User {
@@ -6,7 +7,8 @@ export default class User {
         private id: string,
         private name: string, 
         private email: string,
-        private password: string) {
+        private password: string,
+        private role: userRole) {
 
         }
         public getId() {
@@ -20,5 +22,8 @@ export default class User {
         }
         public getPassword() {
             return this.password
+        }
+        public getRole() {
+            return this.role
         }
 }
