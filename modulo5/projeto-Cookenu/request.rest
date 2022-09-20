@@ -1,0 +1,50 @@
+### variables
+@apiurl = http://localhost:3003
+###
+POST {{apiurl}}/signup
+Content-Type: application/json 
+
+{
+    "name": "joao12",
+    "email": "joaoAdmin@gmail.com",
+    "password": "12345678",
+    "role": "ADMIN"
+}
+
+
+###
+POST {{apiurl}}/login
+Content-Type: application/json 
+
+{
+    "email": "joaoAdmin@gmail.com",
+    "password": "12345678"
+}
+
+
+### 
+GET {{apiurl}}/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkNTc1MjVkLTJlZDYtNGY5NS04MGU0LWY2MWFkYmY5ZjZiZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjM1NDg4MDcsImV4cCI6MTY2MzU1MDkwN30.beSntqQp4Gal8QLc1FpHW2BtTKXfnbj9bI2PDJtOi74
+
+
+###
+POST {{apiurl}}/recipe
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg3YjRhODdhLWEwZGEtNGM5Zi05NTE2LTc4NmI1ZWJlZTMzMiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjM1NTc4NzUsImV4cCI6MTY2MzU1OTk3NX0.H41hUUaNt4pCqKwOcOb1Rj58NMNfeP6z24O0tr5hA4s
+Content-Type: application/json 
+
+{
+    "title": "teste134",
+    "description": "testando o testamento"
+}
+###
+@id = 4ed47b68-c61b-4ce8-a1b6-0b32f9f4b180
+###
+GET {{apiurl}}/recipe/{{id}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkNTc1MjVkLTJlZDYtNGY5NS04MGU0LWY2MWFkYmY5ZjZiZSIsImlhdCI6MTY2MzUyNTU2NywiZXhwIjoxNjYzNTI3NjY3fQ.pKArsdATVV_Xt50afDemPoO2ZQG2Qncnd9Rxb5yR900
+###
+
+
+
+###
+DELETE {{apiurl}}/recipes/{{id}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxNWE2NDJlLTliYmMtNDhhYi1hNWZkLTdhMWY2OGYxZjAyMiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MzU1ODkyNCwiZXhwIjoxNjYzNTYxMDI0fQ.zq1k_sMYo42Vlqx1MxDSrSCyrvu6J8m5_uDBJ5Fl0Dk
