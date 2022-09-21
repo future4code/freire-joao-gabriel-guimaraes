@@ -3,7 +3,6 @@ import cors from 'cors'
 import dotenv from "dotenv"
 import { pingRouter } from './router/pingRouter'
 import { userRouter } from './router/userRouter'
-import { UserController } from './controller/UserController'
 
 dotenv.config()
 
@@ -18,6 +17,4 @@ app.listen(process.env.PORT || 3003, () => {
 app.use("/ping", pingRouter)
 app.use("/users", userRouter)
 
-const userController = new UserController()
-app.post('/users/signup', userController.create)
-app.post('/users/login', userController.login)
+

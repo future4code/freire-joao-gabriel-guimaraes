@@ -19,7 +19,7 @@ export class Authenticator {
                 expiresIn: process.env.JWT_EXPIRES_IN
             }
         )
-            console.log(token)
+        
         return token
     }
 

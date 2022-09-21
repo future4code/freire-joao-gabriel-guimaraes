@@ -18,7 +18,7 @@ export class User {
         private email: string,
         private password: string,
         private role: USER_ROLES
-    ) {}
+    ) { }
 
     public getId = () => {
         return this.id
@@ -59,4 +59,48 @@ export class User {
     public setRole = (newRole: USER_ROLES) => {
         this.role = newRole
     }
+
+}
+
+export interface IUserInputSignUpDTO {
+    name: string,
+    email: string,
+    password: string
+}
+export interface IUserInputLoginDTO {
+    email: string,
+    password: string
+}
+
+export interface IUsersProfileOutputDTO {
+    id: string,
+    name: string,
+    email: string
+
+}
+
+export interface IUserProfileDTO {
+    token: string,
+    search: string,
+    order: string,
+    sort: string,
+    limit: string,
+    page: string
+}
+
+export interface UserDBDTO {
+    search: string,
+    order: string,
+    sort: string,
+    limit: number,
+    page: number,
+    offset: number
+}
+
+export interface IUserResultDTO {
+    id: string,
+    name: string,
+    email: string,
+    password: string,
+    role: USER_ROLES
 }
