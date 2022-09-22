@@ -3,19 +3,22 @@ import { UserBusiness } from "../business/UserBusiness";
 import { IUserInputLoginDTO, IUserInputSignUpDTO, IUserProfileDTO } from "../models/User";
 
 export class UserController {
-
-    async create(req: Request, res: Response) {
+    constructor(
+        private userBusiness: UserBusiness 
+    ) {}
+    
+    public create = async (req: Request, res: Response) =>  {
 
         try {
             const { name, email, password } = req.body
 
-            const userBusiness = new UserBusiness()
+
             const user: IUserInputSignUpDTO = {
                 name,
                 email,
                 password
             }
-            const token = await userBusiness.create(user)
+            const token = await this.userBusiness.create(user)
 
             res.status(200).send({ token })
         } catch (error) {
@@ -23,16 +26,16 @@ export class UserController {
         }
     }
 
-    async login(req: Request, res: Response) {
+    public login = async (req: Request, res: Response) =>  {
         try {
             const { email, password } = req.body
 
-            const userBusiness = new UserBusiness()
+
             const user: IUserInputLoginDTO = {
                 email,
                 password
             }
-            const token = await userBusiness.login(user)
+            const token = await this.userBusiness.login(user)
             res.status(200).send({ token })
 
         } catch (error) {
@@ -41,7 +44,7 @@ export class UserController {
 
     }
 
-    async getProfiles(req: Request, res: Response) {
+    public getProfiles = async (req: Request, res: Response) =>  {
         try {
             const input: IUserProfileDTO =
             {
@@ -53,9 +56,7 @@ export class UserController {
                 page: req.query.page as string
             }
 
-            const userBusiness = new UserBusiness()
-
-            const result = await userBusiness.getProfiles(input)
+            const result = await this.userBusiness.getProfiles(input)
 
             res.status(200).send({ users: result })
         } catch (error) {
@@ -63,13 +64,12 @@ export class UserController {
         }
     }
 
-    async deleteUser(req: Request, res: Response) {
+    public deleteUser = async (req: Request, res: Response) =>  {
         try {
             const token: string = req.headers.authorization
             const id: string = req.params.id
-            const userBusiness = new UserBusiness()
 
-            await userBusiness.deleteUser(token, id)
+            await this.userBusiness.deleteUser(token, id)
 
             res.status(200).send({ message: "Usuário deletado com sucesso!" })
         } catch (error) {

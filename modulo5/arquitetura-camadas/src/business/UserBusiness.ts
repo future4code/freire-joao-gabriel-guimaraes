@@ -6,7 +6,14 @@ import { IdGenerator } from "../services/IdGenerator"
 
 export class UserBusiness {
 
-    async create(user: IUserInputSignUpDTO) {
+    constructor(
+        private userDatabase: UserDatabase,//1
+        private idGenerator:IdGenerator,//2
+        private hashManager: HashManager,//3
+        private authenticator: Authenticator//4
+    ) { }
+
+    public create = async (user: IUserInputSignUpDTO) => {
         const { name, email, password } = user
 
         let role
@@ -23,38 +30,38 @@ export class UserBusiness {
         if (password.length < 6) {
             throw new Error('senha deve possuir no mínimo 6 caracteres')
         }
-        let userVerify = await new UserDatabase().getUserByEmail(email)
+        let userVerify = await this.userDatabase.getUserByEmail(email)
         if (userVerify) {
             throw new Error('Este email ja existe no nosso banco de dados.')
         }
-        const passwordHash = (await new HashManager().hash(password))
-        const id = new IdGenerator().generate()
+        const passwordHash = (await this.hashManager.hash(password))
+        const id = this.idGenerator.generate()
 
         const usuario = new User(id, name, email, passwordHash, role)
-        await new UserDatabase().insertUser(usuario)
-        const token = new Authenticator().generateToken({ id, role })
+        await this.userDatabase.insertUser(usuario)
+        const token = this.authenticator.generateToken({ id, role })
         return token
     }
 
-    async login(user: IUserInputLoginDTO) {
+    public login = async (user: IUserInputLoginDTO) => {
         const { email, password } = user
-        let userVerify: IUserDB = await new UserDatabase().getUserByEmail(email)
+        let userVerify: IUserDB = await this.userDatabase.getUserByEmail(email)
         if (!userVerify) {
             throw new Error('usuário inexistente')
         }
         if (password.length < 6) {
             throw new Error('senha deve possuir no mínimo 6 caracteres')
         }
-        const comparePassword: boolean = await new HashManager().compare(password, userVerify.password)
+        const comparePassword: boolean = await this.hashManager.compare(password, userVerify.password)
         if (!comparePassword) {
             throw new Error('senha incorreta')
         }
         const { id, role } = userVerify
-        const token = new Authenticator().generateToken({ id, role })
+        const token = this.authenticator.generateToken({ id, role })
         return token
     }
 
-    async getProfiles(input: IUserProfileDTO) {
+    public getProfiles = async (input: IUserProfileDTO) => {
 
         const search = input.search || ""
         const order = input.order || "name"
@@ -66,11 +73,11 @@ export class UserBusiness {
             throw new Error('o token deve ser passado!')
         }
 
-        const user = new Authenticator().getTokenPayload(input.token)
+        const user = this.authenticator.getTokenPayload(input.token)
         if (!user) {
             throw new Error('usuário inexistente')
         }
-        const userVerify = await new UserDatabase().getUserById(user.id)
+        const userVerify = await this.userDatabase.getUserById(user.id)
         if (!userVerify) {
             throw new Error('token inválido ou faltando.')
         }
@@ -82,17 +89,17 @@ export class UserBusiness {
             page,
             offset
         }
-        const result: IUsersProfileOutputDTO[] = await new UserDatabase().getUsers(usersDB)
+        const result: IUsersProfileOutputDTO[] = await this.userDatabase.getUsers(usersDB)
         return result
 
     }
 
-    async deleteUser(token: string, id: string) {
+    public deleteUser = async (token: string, id: string) => {
         if (!token) {
             throw new Error('o token deve ser passado!')
         }
 
-        const user = new Authenticator().getTokenPayload(token)
+        const user = this.authenticator.getTokenPayload(token)
         if (!user) {
             throw new Error('usuário inexistente')
         }
@@ -102,6 +109,6 @@ export class UserBusiness {
         if (user.role === USER_ROLES.NORMAL) {
             throw new Error('Apenas usuários ADMIN podem deletar contas.')
         }
-        await new UserDatabase().deleteUser(id)
+        await this.userDatabase.deleteUser(id)
     }
 }
