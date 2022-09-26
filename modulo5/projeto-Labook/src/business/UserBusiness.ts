@@ -1,5 +1,4 @@
 import { UserDatabase } from "../database/UserDatabase"
-import { NotFoundError } from "../errors/NotFoundError"
 import { ParamsError } from "../errors/ParamsError"
 import { IUserInputLogin, IUserInputSignUp, User, USER_ROLES } from "../models/User"
 import { Authenticator, ITokenPayload } from "../services/Authenticator"
@@ -20,7 +19,7 @@ export class UserBusiness {
         const { name, email, password } = input
 
         if (!name || !email || !password) {
-            throw new ParamsError()
+            throw new Error("Todos parâmetros devem ser passados")
         }
         if(name.length < 3 || typeof name !== 'string') {
             throw new Error("Parâmetro 'name' inválido")

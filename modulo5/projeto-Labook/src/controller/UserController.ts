@@ -16,10 +16,10 @@ export class UserController {
         }
 
         const token = await this.userBusiness.signUp(input)
-        res.status(500).send({message: "Usuário cadastrado com sucesso", token})
+        res.status(200).send({message: "Usuário cadastrado com sucesso", token})
     }
         catch(error) {
-            res.status(error.statusCode).send({message: error.message})
+            res.status(500).send({message: error.message})
         }
     }
     public login = async (req: Request, res: Response) => {
@@ -30,7 +30,7 @@ export class UserController {
         }
 
         const token = await this.userBusiness.login(input)
-        res.status(500).send({message: "logado com sucesso.", token})
+        res.status(200).send({message: "logado com sucesso.", token})
     }
         catch(error) {
             res.status(500).send({message: error.message})
