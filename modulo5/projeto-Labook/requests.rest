@@ -1,0 +1,53 @@
+### Endpoint de teste
+GET http://localhost:3003/ping
+
+
+### Cadastrar usuário
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "teste",
+    "email": "primeiroTeste@gmail.com",
+    "password": ""
+}
+
+
+### Login do usuário
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "astrodev@gmail.com",
+    "password": "bananinha"
+}
+
+
+###  Criar um post
+POST http://localhost:3003/posts
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQyMTAzNjcyLTNlMWItNDg2Mi05ZjljLTdhNWViY2UxNzc0ZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjM5NTc4OTksImV4cCI6MTY2NDA0NDI5OX0.2RUZFPskwzWndIJKQKo2TEsQ75Yfdp5ccdukO3znA5w
+Content-Type: application/json
+
+{
+    "content": "testando segundo post 1"
+}
+
+
+### Pegar todos os posts
+GET http://localhost:3003/posts
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQyMTAzNjcyLTNlMWItNDg2Mi05ZjljLTdhNWViY2UxNzc0ZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjM5NTc4OTksImV4cCI6MTY2NDA0NDI5OX0.2RUZFPskwzWndIJKQKo2TEsQ75Yfdp5ccdukO3znA5w
+
+
+### Deletar Post
+DELETE http://localhost:3003/posts/5b41da23-3b4d-4f01-94ab-7976b1a96b6f
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2Mzk1ODAwOCwiZXhwIjoxNjY0MDQ0NDA4fQ.DnySj3l-NKtD-38D_ycEOvKyPLn6NjuQvvLJc40szLQ
+
+
+### Dar like em um post
+POST http://localhost:3003/posts/like/201
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2Mzk1ODAwOCwiZXhwIjoxNjY0MDQ0NDA4fQ.DnySj3l-NKtD-38D_ycEOvKyPLn6NjuQvvLJc40szLQ
+
+
+### Dar dislike em um post
+DELETE http://localhost:3003/posts/dislike/201
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2Mzk1ODAwOCwiZXhwIjoxNjY0MDQ0NDA4fQ.DnySj3l-NKtD-38D_ycEOvKyPLn6NjuQvvLJc40szLQ
