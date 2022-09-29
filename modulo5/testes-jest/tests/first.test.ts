@@ -25,8 +25,8 @@ const stringToArray = (string: string): string[] => {
 }
 
 const age = (num: number): number => {
-
-    return 2022 - num
+    const currentYear = new Date().getFullYear()
+    return currentYear - num
 }
 
 const date = (string: string) => {
@@ -34,30 +34,53 @@ const date = (string: string) => {
     const newString = `${date[2]}/${date[1]}/${date[0]}`
     return newString
 }
-console.log(date('1999/01/29'))
 
 const randomNumber = () => {
-    return Math.random()
+    const min = 1
+    const max = 10
+	const result = Math.floor(Math.random() * (max - min + 1)) + min
+
+	return result
 }
 
-// const average = () => {
-//     const array = [1,2,3,4,5]
-//     let total = array.reduce()
-// }
+const average = () => {
+    const array = [1,2,3,4,5]
+    let total = array.reduce(
+    (previousValue, currentValue) => previousValue + currentValue, 0)
+    let average = ( total / array.length)
+    return Math.ceil(average)
+}
 
 const array = ['joao', 'pedro', 'thiago', 'no', 'barquinho', 'astrodev']
-// describe(("fazendo testes com JEST"), () => {
 
-//     test('O numero inserido é par?', () => {
+
+describe(("fazendo testes com JEST"), () => {
+
+    test('O numero inserido é par?', () => {
         
-//         expect(isOdd(10)).toBe(true)
-//     })
+        expect(isOdd(10)).toBe(true)
+    })
 
-//     test("testando upper caser", () => {
-//         const string = 'banana'
-//         expect(UpperCase(string)).toBe(string.toUpperCase())
-//     })
-// })
+    test("testando upper caser", () => {
+        const string = 'banana'
+        expect(UpperCase(string)).toBe(string.toUpperCase())
+    })
+
+    test ("Verificar se existe astrodev no array",()=>{
+        const arrayDePessoas = array
+                
+                expect(arrayDePessoas).toContain("astrodev")
+    })
+    test ("refatorando datas",()=>{
+                
+                expect(date('1999/01/29')).toBe("29/01/1999")
+    })
+    test ("número aleatório",()=>{
+                
+               
+    })
+    
+})
 
 
 
