@@ -1,7 +1,8 @@
 import React from "react";
 import { Router } from "./routes/Routes"
 import {GlobalProvider} from "../src/global/context/useContext.js"
-
+import './styles/globals.css'
+import "@fontsource/montserrat"
 function App() {
   return (
     <>

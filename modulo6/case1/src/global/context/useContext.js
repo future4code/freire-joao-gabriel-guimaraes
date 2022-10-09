@@ -4,7 +4,7 @@ import { useState } from "react";
 export const GlobalContext = createContext({})
 
 export const GlobalProvider = ({children}) => {
-    const [nome, setNome] = useState('Maycon :)');
+    const [nome, setNome] = useState('');
     return (
         <GlobalContext.Provider value={{nome, setNome}}>{children}</GlobalContext.Provider>
     )

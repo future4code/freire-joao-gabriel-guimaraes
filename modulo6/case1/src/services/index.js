@@ -1,31 +1,31 @@
 import axios from 'axios'
-import {BASE_URL} from '../constants/BASE_URL.js'
 import { useEffect, useState } from 'react';
-export const Nome = () => {
-    const [nome, setNome] = useState([])
-    axios
-        .get(`${BASE_URL}/arcano1.jpg`)
-        .then((response) => {
-            setNome(response)
-            console.log(response)
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    return nome
-};
 
+export const useRequestData =  (url) => {
+    const [data, setData] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState('')
+    const getData = () => {
+        setIsLoading(true)
+        axios
+            .get(url)
+            .then((response) => {
+                setData(response.data)
+                console.log(response.data)
+                setIsLoading(false)
+            })
+            .catch((err) => {
+                console.log(err);
+                setIsLoading(false)
+                setError(err.message)
+            });
+        
+    };
+    useEffect(() => {
+        getData()
+    }, [url])
 
-// const fs = require("fs")
+    return [data, isLoading, error, getData]
+}
+ 
 
-// export function readFileJson(file) {
-//     try {
-//         let content = fs.readFileSync(file, "utf-8");
-//         return JSON.parse(content)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
-// const lendoJSon = readFileJson('./content.json')
-//     console.log(lendoJSon)
