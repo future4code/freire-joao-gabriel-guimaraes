@@ -10,5 +10,8 @@ export const goToTeste = (navigate, user) => {
 export const goToHistory = (navigate) => {
     navigate(`/history`)
   }
+export const goToRepo = (navigate, user) => {
+    navigate(`/${user}/repos`)
+  }
 
 

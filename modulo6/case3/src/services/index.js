@@ -1,17 +1,15 @@
 import axios from 'axios'
-import { useContext, useEffect, useState } from 'react';
-import { GlobalContext } from '../global/context/useContext.js';
+import { useEffect, useState } from 'react';
 
 export const useRequestData = (url) => {
     const [data1, setData1] = useState([])
     const [isloading, setIsLoading] = useState(false)
-    const { setData } = useContext(GlobalContext)
 const getData = () => {
     setIsLoading(true)
     axios
         .get(url)
         .then((res) => {
-            setData(res.data)
+            setData1(res.data)
             console.log(res)
             setIsLoading(false)
         })
@@ -24,16 +22,5 @@ const getData = () => {
 useEffect(() => {
     getData()
 }, [url])
-    return [data1, isloading, getData]
+    return [data1, isloading]
 };
-
-export const GetData1 = (url, setUser) => {
-    axios.get(url)
-    .then((res) => {
-        setUser(res.data)
-        console.log(res)
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-}
